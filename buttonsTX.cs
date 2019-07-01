@@ -29,4 +29,13 @@ public class buttonsTX : MonoBehaviour
         SceneManager.LoadScene("playermenu");
     }
 
+    public void newplay()
+    {
+        SceneManager.LoadScene("Testfield");
+    }
+
+    public void playagain2()
+    {
+        SceneManager.LoadScene("playagainmenu");
+    }
 }

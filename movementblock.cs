@@ -8,6 +8,8 @@ public class movementblock : MonoBehaviour
     public AudioSource Win;
     public AudioSource turn;
 
+    public buttonsTX other;
+
     public Vector3 rotationPoint;
     private float previousTime;
     public float fallTime = 0.8f;
@@ -45,6 +47,7 @@ public class movementblock : MonoBehaviour
             transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), 90);
             if (!ValidMove())
                 transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), -90);
+            //plays sound for turning
             turn.Play();
         }
 
@@ -64,6 +67,7 @@ public class movementblock : MonoBehaviour
             }
             previousTime = Time.time;
         }
+
     }
 
     void CheckForLines()
