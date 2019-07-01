@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class spawningALL : MonoBehaviour
 {
-    public GameObject[] Tetrominoes;
+    public GameObject[] blockT;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +14,6 @@ public class spawningALL : MonoBehaviour
 
     public void NewTetromino()
     {
-        Instantiate(Tetrominoes[Random.Range(0, Tetrominoes.Length)], transform.position, Quaternion.identity);
+        Instantiate(blockT[Random.Range(0, blockT.Length)], transform.position, Quaternion.identity);
     }
 }
