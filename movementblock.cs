@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class movementblock : MonoBehaviour
 {
+
+    public AudioSource Win;
+    public AudioSource turn;
+
     public Vector3 rotationPoint;
     private float previousTime;
     public float fallTime = 0.8f;
@@ -20,17 +24,20 @@ public class movementblock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        turn = GetComponent<AudioSource>();
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             transform.position += new Vector3(-1, 0, 0);
             if (!ValidMove())
                 transform.position -= new Vector3(-1, 0, 0);
+            turn.Play();
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             transform.position += new Vector3(1, 0, 0);
             if (!ValidMove())
                 transform.position -= new Vector3(1, 0, 0);
+            turn.Play();
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -38,6 +45,7 @@ public class movementblock : MonoBehaviour
             transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), 90);
             if (!ValidMove())
                 transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), -90);
+            turn.Play();
         }
 
 
@@ -60,12 +68,14 @@ public class movementblock : MonoBehaviour
 
     void CheckForLines()
     {
+        Win = GetComponent<AudioSource>();
         for (int i = height - 1; i >= 0; i--)
         {
             if (HasLine(i))
             {
                 DeleteLine(i);
                 RowDown(i);
+                Win.Play();
             }
         }
     }
@@ -87,6 +97,7 @@ public class movementblock : MonoBehaviour
         {
             Destroy(grid[j, i].gameObject);
             grid[j, i] = null;
+           
         }
     }
 
