@@ -8,6 +8,7 @@ public class playermove : MonoBehaviour
     public KeyCode key1;
     public float speed=5f;
     public bool collide;
+    public spawn spawner;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,19 +18,22 @@ public class playermove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        first = spawner.lastSpawned;
+
             if (Input.GetKeyDown(key1) && collide==false)
             {
                 first.transform.Rotate(0, 0, 90);
             }
 
     }
-
-    void OnCollisionEnter(Collision collision)
+    /**
+     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "gamebar")
+        
+        if (collision.gameObject.name == "gamebar")
         {
             collide = true;
+            Debug.Log("Do something here");
         }
         else 
         {
@@ -37,4 +41,21 @@ public class playermove : MonoBehaviour
         }
 
     }
+    */
+    
+     void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.name == "gamebar")
+        {
+            collide = true;
+            Debug.Log("Do something here");
+        }
+        else
+        {
+            collide = false;
+        }
+
+    }
+    
 }

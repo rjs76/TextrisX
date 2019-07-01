@@ -154,6 +154,7 @@ MonoBehaviour:
   stopSpawning: 0
   spawnTime: 1
   spawnDelay: 3
+  lastSpawned: {fileID: 0}
 --- !u!61 &641935168
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -247,6 +248,7 @@ MonoBehaviour:
   stopSpawning: 0
   spawnTime: 1
   spawnDelay: 5
+  lastSpawned: {fileID: 0}
 --- !u!61 &687141706
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -284,6 +286,7 @@ GameObject:
   - component: {fileID: 814980324}
   - component: {fileID: 814980323}
   - component: {fileID: 814980322}
+  - component: {fileID: 814980325}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -356,6 +359,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &814980325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814980321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85928f3d3c273d4d95f311a024a6bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  first: {fileID: 7899448825962853633, guid: 7b7f60a3fa42f414a96344bb0490bec2, type: 3}
+  key1: 32
+  speed: 1
+  collide: 0
+  spawner: {fileID: 687141705}
 --- !u!1 &845672861
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,7 +837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854061250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -3.52, z: -113.26735}
+  m_LocalPosition: {x: 0.03, y: -3.06, z: -113.26735}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -8,6 +8,7 @@ public class spawn : MonoBehaviour
     public bool stopSpawning= false;
     public float spawnTime;
     public float spawnDelay;
+    public GameObject lastSpawned;
     
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,7 @@ public class spawn : MonoBehaviour
 
     public void SpawnObject()
     {
-        Instantiate(spawnee, transform.position, transform.rotation);
+        lastSpawned= Instantiate(spawnee, transform.position, transform.rotation);
         if (stopSpawning)
             CancelInvoke("SpawnObject");
     }
